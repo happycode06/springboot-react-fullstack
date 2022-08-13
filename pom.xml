@@ -8,13 +8,13 @@
 		<version>2.6.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
+	<groupId>com.lolucode</groupId>
+	<artifactId>student</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
-	<description>Demo project for Spring Boot</description>
+	<name>Student</name>
+	<description>Student project for Spring Boot</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>15</java.version>
 		<app.image.name>springboot-react-fullstack</app.image.name>
 		<app.image.tag/>
 	</properties>
@@ -43,6 +43,10 @@
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -62,13 +66,12 @@
 			<plugin>
 				<groupId>com.google.cloud.tools</groupId>
 				<artifactId>jib-maven-plugin</artifactId>
-				<version>3.2.0</version>
+				<version>2.5.2</version>
 				<configuration>
 					<from>
 						<image>openjdk:15</image>
 					</from>
 					<container>
-						<mainClass>com.example.demo.DemoApplication</mainClass>
 						<ports>
 							<port>8080</port>
 						</ports>
@@ -89,16 +92,12 @@
 					<plugin>
 						<groupId>com.google.cloud.tools</groupId>
 						<artifactId>jib-maven-plugin</artifactId>
-						<version>3.2.0</version>
+						<version>2.5.2</version>
 						<configuration>
 							<from>
 								<image>openjdk:15</image>
 							</from>
-							<to>
-								<image>docker.io/lolucode/${app.image.name}:${app.image.tag}</image>
-							</to>
 							<container>
-								<mainClass>com.example.demo.DemoApplication</mainClass>
 								<ports>
 									<port>8080</port>
 								</ports>
@@ -111,7 +110,7 @@
 								<phase>package</phase>
 								<configuration>
 									<to>
-										<image>docker.io/lolucode/${app.image.name}:${app.image.tag}</image>
+										<image>docker.io/lolucodes/${app.image.name}:${app.image.tag}</image>
 									</to>
 								</configuration>
 								<goals>
@@ -123,7 +122,7 @@
 								<phase>package</phase>
 								<configuration>
 									<to>
-										<image>docker.io/lolucode/${app.image.name}:latest</image>
+										<image>docker.io/lolucodes/${app.image.name}:latest</image>
 									</to>
 								</configuration>
 								<goals>
@@ -134,7 +133,6 @@
 					</plugin>
 				</plugins>
 			</build>
-
 		</profile>
 		<profile>
 			<id>jib-push-to-local</id>
@@ -146,16 +144,12 @@
 					<plugin>
 						<groupId>com.google.cloud.tools</groupId>
 						<artifactId>jib-maven-plugin</artifactId>
-						<version>3.2.0</version>
+						<version>2.5.2</version>
 						<configuration>
 							<from>
 								<image>openjdk:15</image>
 							</from>
-							<to>
-								<image>lolucode/${app.image.name}:${app.image.tag}</image>
-							</to>
 							<container>
-								<mainClass>com.example.demo.DemoApplication</mainClass>
 								<ports>
 									<port>8080</port>
 								</ports>
@@ -168,7 +162,7 @@
 								<phase>package</phase>
 								<configuration>
 									<to>
-										<image>lolucode/${app.image.name}:${app.image.tag}</image>
+										<image>lolucodes/${app.image.name}:${app.image.tag}</image>
 									</to>
 								</configuration>
 								<goals>
@@ -180,7 +174,7 @@
 								<phase>package</phase>
 								<configuration>
 									<to>
-										<image>docker.io/lolucode/${app.image.name}:latest</image>
+										<image>lolucodes/${app.image.name}:latest</image>
 									</to>
 								</configuration>
 								<goals>
@@ -191,10 +185,9 @@
 					</plugin>
 				</plugins>
 			</build>
-
 		</profile>
 		<profile>
-			<id>build-my-app</id>
+			<id>build-frontend</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
@@ -204,11 +197,11 @@
 						<groupId>com.github.eirslett</groupId>
 						<artifactId>frontend-maven-plugin</artifactId>
 						<!-- Use the latest released version:
-                                  https://repo1.maven.org/maven2/com/github/eirslett/frontend-maven-plugin/ -->
+                        https://repo1.maven.org/maven2/com/github/eirslett/frontend-maven-plugin/ -->
 						<version>1.11.2</version>
 						<configuration>
 							<nodeVersion>v4.6.0</nodeVersion>
-							<workingDirectory>src/my-app</workingDirectory>
+							<workingDirectory>src/frontend</workingDirectory>
 						</configuration>
 						<executions>
 							<execution>
@@ -253,8 +246,9 @@
 								<configuration>
 									<resources>
 										<resource>
-											<directory>src/my-app/build</directory>
+											<directory>src/frontend/build</directory>
 										</resource>
+
 									</resources>
 									<outputDirectory>${basedir}/target/classes/static</outputDirectory>
 								</configuration>
@@ -265,5 +259,4 @@
 			</build>
 		</profile>
 	</profiles>
-
 </project>
