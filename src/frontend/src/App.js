@@ -222,15 +222,10 @@ function App() {
                 </div>
             </Content>
             <Footer style={{textAlign: 'center'}}>
-
-                <Divider>
-                    <a
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        href="https://lolucode.com">
-                        Dev Lolu
-                    </a>
-                </Divider>
+                <Image
+                    width={75}
+                    src="https://user-images.githubusercontent.com/62277795/184659600-2e66bcf9-afdd-4a3c-9ed7-ecbb78cc399f.png"
+                />
             </Footer>
         </Layout>
     </Layout>
