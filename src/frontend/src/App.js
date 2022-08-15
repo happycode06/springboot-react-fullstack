@@ -229,7 +229,7 @@ function App() {
                 <Divider>
                     <a
                         target="_blank"
-                        href="https://lolucode.com">Click Here to Access Portfolio</a>
+                        href="https://lolucode.com">Click Here to Access My Portfolio</a>
                 </Divider>
             </Footer>
         </Layout>
