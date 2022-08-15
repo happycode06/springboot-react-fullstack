@@ -226,11 +226,6 @@ function App() {
                     width={75}
                     src="https://user-images.githubusercontent.com/62277795/184659600-2e66bcf9-afdd-4a3c-9ed7-ecbb78cc399f.png"
                 />
-                <Divider>
-                    <a
-                        target="_blank"
-                        href="https://lolucode.com">Click here to access Other Projects</a>
-                </Divider>
             </Footer>
         </Layout>
     </Layout>
