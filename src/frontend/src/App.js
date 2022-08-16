@@ -229,7 +229,7 @@ function App() {
                 <Divider>
                     <a
 
-                        // Checkout portfolio
+                        // Link to portfolio
                         target="_blank"
                         rel="noreferrer"
                         href="https://lolucode.com">Click Here to Access My Portfolio</a>
