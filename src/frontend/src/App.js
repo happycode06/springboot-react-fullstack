@@ -228,8 +228,11 @@ function App() {
                 />
                 <Divider>
                     <a
+
+                        // Checkout portfolio
                         target="_blank"
-                        href="https://lolucode.com">Click here to access Other Projects</a>
+                        rel="noreferrer"
+                        href="https://lolucode.com">Click Here to Access My Portfolio</a>
                 </Divider>
             </Footer>
         </Layout>
